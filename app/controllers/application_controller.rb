@@ -6,13 +6,14 @@ class ApplicationController < ActionController::Base
    def dansfunction
        @comicColl = [];
        if(!params[:f] or !params[:l])
+         page = Nokogiri::HTML(open("http://xkcd.com/")) 
          page.xpath('//body/div[@id = "middleContainer"]/div/img').each do |image|
             logger.debug(image['src'])
             @comic = Comic.new()
             @comic.src = image['src'];
             @comic.title = image['title']
             @comic.alt = image['alt']
-            @comic.number = i;
+            @comic.number = 1000;  #add more refined method to calculate latest
             @comicColl.push(@comic);
          end
        elsif params[:f] < params[:l]
