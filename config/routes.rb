@@ -1,5 +1,8 @@
 EndlessXKCD::Application.routes.draw do
-  match '/', to: "application#dansfunction"
+  match '/', to: "application#xkcd"
+  match '/buttersafe', to: "application#buttersafe"
+  match '/hobbes', to: "application#hobbes"
+  match '/nerfnow', to: "application#nerfnow"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
