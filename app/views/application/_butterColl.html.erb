@@ -1,0 +1,10 @@
+<style type="text/css">
+  a.hover: underline(none)
+</style>
+ <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+<body>
+  <% butterColl.each do |comic| %>
+    <%= render partial: "butter", object: comic %>
+  <% end %>
+</body>
