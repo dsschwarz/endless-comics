@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
    def dansfunction
        @comicColl = [];
        if(!params[:f] or !params[:l])
-         page = Nokogiri::HTML(open("http://xkcd.com/")) 
+         page = Nokogiri::HTML(open("https://xkcd.com/"))
          page.xpath('//body/div[@id = "middleContainer"]/div/img').each do |image|
             logger.debug(image['src'])
             @comic = Comic.new()
@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
          end
        elsif params[:f] < params[:l]
            for i in params[:f]..params[:l]
-             page = Nokogiri::HTML(open("http://xkcd.com/#{i}/")) 
+             page = Nokogiri::HTML(open("https://xkcd.com/#{i}/"))
              page.xpath('//body/div[@id = "middleContainer"]/div/img').each do |image|
                 logger.debug(image['src'])
                 @comic = Comic.new()
@@ -31,7 +31,7 @@ class ApplicationController < ActionController::Base
            end
        else
           for i in params[:l]..params[:f]
-             page = Nokogiri::HTML(open("http://xkcd.com/#{i}/")) 
+             page = Nokogiri::HTML(open("https://xkcd.com/#{i}/"))
              page.xpath('//body/div[@id = "middleContainer"]/div/img').each do |image|
                 logger.debug(image['src'])
                 @comic = Comic.new()
