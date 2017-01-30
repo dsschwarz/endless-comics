@@ -4,6 +4,14 @@
  <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
 <body>
+<form method="get">
+  <input type="number" placeholder="First" name="f">
+  <br>
+  <input type="number" placeholder="Last" name="l">
+  <br>
+  <button>Go</button>
+</form>
+
   <% comicColl.each do |comic| %>
     <%= render partial: "comic", object: comic %>
   <% end %>
